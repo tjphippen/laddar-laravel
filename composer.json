@@ -14,7 +14,9 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "tjphippen/laddar": "~0.1-dev"
+        "tjphippen/laddar": "~0.1-dev",
+        "tjphippen/coinbase": "~0.1-dev",
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -62,8 +64,18 @@
     },
     "repositories": {
         "laddar": {
-            "type": "git",
-            "url": "git@github.com:tjphippen/laddar.git"
+            "type": "path",
+            "url": "packages/tjphippen/laddar",
+            "options": {
+                "symlink": true
+            }
+        },
+        "coinbase": {
+            "type": "path",
+            "url": "packages/tjphippen/coinbase",
+            "options": {
+                "symlink": true
+            }
         }
     }
 }

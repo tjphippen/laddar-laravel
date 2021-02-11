@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Tjphippen\Laddar\Http\Controllers\ApiController;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -35,18 +36,23 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->configureRateLimiting();
+        parent::boot();
 
-        $this->routes(function () {
-            Route::prefix('api')
-                ->middleware('api')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/api.php'));
+	Route::model('user', \App\Model\User::class);
 
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
-        });
+
+//        $this->configureRateLimiting();
+//
+//        $this->routes(function () {
+//            Route::prefix('api')
+//                ->middleware('api')
+//                ->namespace($this->namespace)
+//                ->group(base_path('routes/api.php'));
+//
+//            Route::middleware('web')
+//                ->namespace($this->namespace)
+//                ->group(base_path('routes/api.php'));
+//        });
     }
 
     /**
